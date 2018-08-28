@@ -1,0 +1,570 @@
+3.1.1  索引
+>>> greeting='Hello'#定义变量greeting，并赋值Hello
+>>> greeting[0] #根据编号取元素，使用格式为：在中括号中输入所取元素的编号值
+'H'
+>>> greeting[1]
+'e'
+>>> greeting[2]
+'l'
+
+
+>>> greeting[-1]
+'o'
+>>> greeting[-2]
+'l'
+>>> greeting[-3]
+'l'
+>>> greeting[-4]
+'e'
+
+
+>>> 'Hello'[0]
+'H'
+>>> 'Hello'[1]
+'e'
+>>> 'Hello'[-1]
+'o'
+>>> 'Hello'[-2]
+'l'
+
+
+>>> thirdth=input()[0]
+happy
+>>> thirdth
+'h'
+
+
+
+
+3.1.2  分片
+>>> number=[1,2,3,4,5,6,7,8,9,10]  
+>>> number[1:3] #取索引为第一和第二的元素  
+[2, 3]  
+>>> number[-3:-1] #负数表明从右开始计数，取得倒数第三和倒数第二的元素  
+[8, 9]  
+
+
+>>> number=[1,2,3,4,5,6,7,8,9,10]  
+>>> number[7:10] #取最后3个元素  
+[8, 9, 10]
+
+
+>>> number=[1,2,3,4,5,6,7,8,9,10]  
+>>> number[-3,-1] 
+[8, 9]
+>>> number[-3:0] 
+ []
+>>> number[-3:] 
+ [8, 9, 10]
+>>> number[0:]  #从第一个元素开始输出，输出全部结果
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> number[:0] #最后一个元素为第一个，输出为空
+[]
+>>> number[:3] #取得前3个元素
+[1, 2, 3]
+>>> number[:]  #取得整个数组
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> number[0:10:1]
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> number[0:10:2]
+[1, 3, 5, 7, 9]
+>>> number[0:10:3]
+[1, 4, 7, 10]
+>>> number[2:6:3]
+[3, 6]
+>>> number[2:5:3]
+[3]
+>>> number[1:5:3]
+[2, 5]
+>>> number[::3]
+[1, 4, 7, 10]
+>>> number[::0]
+Traceback (most recent call last):
+  File "<pyshell#73>", line 1, in <module>
+    number[::0]
+ValueError: slice step cannot be zero
+>>> number[10:0:-2]
+[10, 8, 6, 4, 2]
+>>> number[0:10:-2]
+[]
+>>> number[::-2]
+[10, 8, 6, 4, 2]
+>>> number[5::-2]
+[6, 4, 2]
+>>> number[:5:-2]
+[10, 8]
+>>> number[::-1]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+>>> number[10:0:-1]  #第二个索引为0，取不到序列中的第一个元素
+[10, 9, 8, 7, 6, 5, 4, 3, 2]
+>>> number[10::-1] #设置第二个索引为空，可以取到序列的一个元素
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+>>> number[2::-1] #设置第二个索引为空，可以取到序列的一个元素
+[3, 2, 1]
+>>> number[2:0:-1] #第二个索引为0，取不到序列中的第一个元素
+
+
+
+
+3.1.3  序列相加
+>>> [1,2,3]+[4,5,6]
+[1, 2, 3, 4, 5, 6]
+>>> a=[1,2]
+>>> b=[5,6]
+>>> a+b
+[1, 2, 5, 6]
+>>> s='hello,'
+>>> w='world'
+>>> s+w
+'hello,world'
+>>> [1,2]+'hello'
+Traceback (most recent call last):
+  File "<pyshell#103>", line 1, in <module>
+    [1,2]+'hello'
+TypeError: can only concatenate list (not "str") to list
+>>> type([1,2])# 取得[1,2]的类型为list 
+<class 'list'>
+>>> type('hello')# 取得hello的类型为字符串
+<class 'str'>
+
+
+
+
+3.1.4  乘法
+>>> 'hello'*5
+'hellohellohellohellohello'
+>>> [7]*10
+[7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+
+
+>>> sq=[None]*5  #初始化sq为含有5个None的序列
+>>> sq
+[None, None, None, None, None]
+
+
+
+
+3.1.5  成员资格
+>>> greeting='hello,world' 
+>>> 'w' in greeting   #检测w是否在字符串中
+True
+>>> 'a' in greeting
+False
+>>> users=['xiaomeng','xiaozhi','xiaoxiao']
+>>> 'xiaomeng' in users  #检测字符串是否在字符串列表中
+True
+>>> 'xiaohuai' in users
+False
+>>> numbers=[1,2,3,4,5]
+>>> 1 in numbers  #检测数字是否在数字列表中
+True
+>>> 6 in numbers
+False
+>>> eng='** Study python is so happy!**'
+>>> '**' in eng  #检测一些特殊字符是否在字符串中
+True
+>>> '$' in eng
+False
+>>> 'a' in numbers
+False
+>>> 3 in greeting
+Traceback (most recent call last):
+  File "<pyshell#123>", line 1, in <module>
+    3 in greeting
+TypeError: 'in <string>' requires string as left operand, not int
+
+
+
+
+3.1.6  长度、最小值和最大值
+>>> numbers=[300,200,100,800,500]
+>>> len(numbers)
+5
+>>> max(numbers)
+800
+>>> min(numbers)
+100
+>>> max(5,3,10,7)
+10
+>>> min(7,0,3,-1)
+-1
+
+
+
+
+3.2.1  更新列表
+>>> a=[1,2,3,2,1]
+>>> a[1]=10
+>>> a
+[1, 10, 3, 2, 1]
+>>> a[3]=10
+>>> a
+[1, 10, 3, 10, 1]
+>>> a[2]='hello'  #对编号为2的元素赋值，赋一个字符串
+>>> a
+[1, 10, 'hello', 10, 1] 
+<class 'list'>
+>>> type(a[1])  #别忘了查看类型函数的使用
+<class 'int'>
+>>> type(a[2])
+<class 'str'>
+>>> tring=[1,2,3]
+>>> tring[3]='test'
+Traceback (most recent call last):
+  File "<pyshell#43>", line 1, in <module>
+    tring[3]='test'
+IndexError: list assignment index out of range
+>>> tring=[None]*5
+>>> tring[3]='test'
+>>> tring
+[None, None, None, 'test', None]
+
+
+>>> tring=[1,2,3]
+>>> tring.append(4)
+>>> tring
+[1, 2, 3, 4]
+>>> tring=[1,2,3]
+>>> tring.append('test') #添加字符串
+>>> tring
+[1, 2, 3, 'test']
+>>> s=['a','b','c']
+>>> s.append(3) #添加数字
+>>> s
+['a', 'b', 'c', 3]
+
+
+>>> tring=['a','b','c','d','e']
+>>> len(tring)
+5
+>>> del tring[1]
+>>> print('删除第二个元素：',tring)
+删除第二个元素： ['a', 'c', 'd', 'e']
+>>> len(tring)
+4
+>>> num=[1,2,3]
+>>> len(num)
+3
+>>> del num[2]
+>>> print('删除第3个元素后：',num)
+删除第3个元素后：[1, 2]
+>>> len(num)
+2
+
+
+>>> list('女排夺冠了')
+['女', '排', '夺', '冠', '了']
+>>> boil=list('女排夺冠了')
+>>> boil
+['女', '排', '夺', '冠', '了']
+>>> show=list('hi,boy')
+>>> show
+['h', 'i', ',', 'b', 'o', 'y']
+>>> show[3:]=list('man')
+>>> show
+['h', 'i', ',', 'm', 'a', 'n']
+>>> greeting=list('hi')
+>>> greeting
+['h', 'i']
+>>> greeting[1:]=list('ello')
+>>> greeting
+['h', 'e', 'l', 'l', 'o']
+>>> field=list('ae')
+>>> field
+['a', 'e']
+>>> field [1:1]=list('bcd')
+>>> field
+['a', 'b', 'c', 'd', 'e']
+>>> boil=list('女排夺冠了')
+>>> boil
+['女', '排', '夺', '冠', '了']
+>>> boil[2:2]=list('2016年奥运会')
+>>> boil
+['女', '排', '2', '0', '1', '6', '年', '奥', '运', '会', '夺', '冠', '了']
+>>> field=list('abcde')
+>>> field
+['a', 'b', 'c', 'd', 'e']
+>>> field[1:4]=[]
+>>> field
+['a', 'e']
+>>> boil=list('女排2016年奥运会夺冠了')
+>>> boil
+['女', '排', '2', '0', '1', '6', '年', '奥', '运', '会', '夺', '冠', '了']
+>>> boil[2:10]=[]
+>>> boil
+['女', '排', '夺', '冠', '了']
+>>> del field[1:4]
+>>> field
+['a', 'e']
+
+
+
+
+3.2.2  嵌套列表
+>>> field=['a','b','c']
+>>> field
+['a', 'b', 'c']
+>>> num=[1,2,3]
+>>> num
+[1, 2, 3]
+>>> mix=[field,num]
+>>> mix
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> mix[0]
+['a', 'b', 'c']
+>>> mix[1]
+[1, 2, 3]
+
+
+
+
+3.2.3  列表方法
+list.append(obj)
+
+
+>>> field=list('hello,world')
+>>> field
+['h', 'e', 'l', 'l', 'o', ',', 'w', 'o', 'r', 'l', 'd']
+>>> print('列表field中，字母o的个数：',field.count('o'))#统计列表中的字符个数
+列表field中，字母o的个数： 2
+>>> print('列表field中，字母l的个数：',field.count('l'))
+列表field中，字母l的个数： 3
+>>> print('列表field中，字母a的个数：',field.count('a'))
+列表field中，字母a的个数： 0
+>>> listobj = [123, 'hello', 'world', 123]
+>>> listobj = [26, 'hello', 'world', 26]
+>>> print('数字26 的个数：',listobj.count(26))
+数字26 的个数： 2
+>>> print('hello的个数：',listobj.count('hello'))#统计字符串个数
+hello的个数： 1
+>>> ['a','c','a','f','a'].count('a')
+3
+>>> mix=[[1,3],5,6,[1,3],2,]
+>>> print('嵌套列表mix中列表[1,3]的个数为：',mix.count([1,3]))
+嵌套列表mix中列表[1,3]的个数为： 2
+
+
+>>> a=['hello','world']
+>>> b=['python','is','funny']
+>>> a.extend(b)
+>>> a
+['hello', 'world', 'python', 'is', 'funny']
+>>> a=['hello','world']
+>>> b=['python','is','funny']
+>>> a+b
+['hello', 'world', 'python', 'is', 'funny']
+>>> a
+['hello', 'world']
+>>> a=['hello','world']
+>>> b=['python','is','funny']
+>>> a[len(a):]=b
+>>> a
+['hello', 'world', 'python', 'is', 'funny']
+
+
+>>> field=['hello', 'world', 'python', 'is', 'funny']
+>>> print('hello的索引位置为：',field.index('hello'))
+hello的索引位置为： 0
+>>> print('python的索引位置为：',field.index('python'))
+python的索引位置为： 2
+>>> print('abc的索引位置为：',field.index('abc'))
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    print('abc的索引位置为：',field.index('abc'))
+ValueError: 'abc' is not in list
+
+
+>>> num=[1,2,3]
+>>> print('插入之前的num：',num)
+插入之前的num： [1, 2, 3]
+>>> num.insert(2,'插入位置在2之后，3之前')
+>>> print('插入之后的num：',num)
+插入之后的num： [1, 2, '插入位置在2之后，3之前', 3]
+>>> num=[1,2,3]
+>>> print('插入之前的num：',num)
+插入之前的num： [1, 2, 3]
+>>> num[2:2]=['插入位置在2之后，3之前']
+>>> print('插入之后的num：',num)
+插入之后的num： [1, 2, '插入位置在2之后，3之前', 3]
+
+
+>>> field=['hello', 'world', 'python', 'is', 'funny']
+>>> field.pop()  #不传参数，默认移除最后一个元素
+'funny'
+>>> print('移除元素后的field：',field)
+移除元素后的field： ['hello', 'world', 'python', 'is']
+>>> field.pop(3)  #移除编号为3的元素
+'is'
+>>> print('移除元素后的field：',field)
+移除元素后的field： ['hello', 'world', 'python']
+>>> field.pop(0)
+'hello'
+>>> print('移除元素后的field：',field)
+移除元素后的field： ['world', 'python']
+>>> num=[1,2,3]
+>>> num.append(num.pop()) #追加默认出栈的值
+>>> print('num追加默认出栈值的操作结果：',num)
+num追加默认出栈值的操作结果： [1, 2, 3]
+
+
+>>> field=['女排','精神','中国','精神','学习','精神']
+>>> print('移除前列表field：',field)
+移除前列表field： ['女排', '精神', '中国', '精神', '学习', '精神']
+>>> field.remove('精神')
+>>> print('移除后列表field：',field)
+移除后列表field： ['女排', '中国', '精神', '学习', '精神'] 
+>>> field.remove('abc')  #删除列表中不存在的元素
+Traceback (most recent call last):
+  File "<pyshell#71>", line 1, in <module>
+    field.remove('abc')
+ValueError: list.remove(x): x not in list
+
+
+>>> num=[1,2,3]
+>>> print('列表反转前num：',num)
+列表反转前num： [1, 2, 3]
+>>> num.reverse()
+>>> print('列表反转后：',num)
+列表反转后： [3, 2, 1]
+
+
+>>> num=[5,8,1,3,6]
+>>> num.sort()
+>>> print('num调用sort方法后：',num)
+num调用sort方法后： [1, 3, 5, 6, 8]
+>>> num=[5,8,1,3,6]
+>>> n=num.sort()
+>>> print('变量n的结果是:',n)
+变量n的结果是: None
+>>> print('列表num排序后的结果是:',num)
+列表num排序后的结果是: [1, 3, 5, 6, 8]
+>>> num=[5,8,1,3,6]
+>>> n=num    #直接将列表num赋值给n
+>>> n.sort()
+>>> print('变量n的结果是:',n)
+变量n的结果是: [1, 3, 5, 6, 8]
+>>> print('num的结果是:',num) #num也被排序了
+num的结果是: [1, 3, 5, 6, 8]
+>>> num=[5,8,1,3,6]
+>>> n=num[:]   #将列表num切片后赋值给n
+>>> n.sort()
+>>> print('变量n的结果是:',n)
+变量n的结果是: [1, 3, 5, 6, 8]
+>>> print('num的结果是:',num)  #num保持原样
+num的结果是: [5, 8, 1, 3, 6]
+>>> num=[5,8,1,3,6]
+>>> n=sorted(num)
+>>> print('变量n的操作结果是:',n)
+变量n的操作结果是: [1, 3, 5, 6, 8]
+>>> print('num的结果是:',num)  #num保持原样
+num的结果是: [5, 8, 1, 3, 6]
+>>> sorted('python')
+['h', 'n', 'o', 'p', 't', 'y']
+>>> sorted('321')
+['1', '2', '3']
+
+
+>>> field=['study','python','is','happy']
+>>> field.clear()
+>>> print('field调用clear方法后的结果:',field)
+field调用clear方法后的结果: []
+
+
+>>> field=['study','python','is','happy']
+>>> copyfield=field.copy()
+>>> print('复制操作结果:',copyfield)
+复制操作结果: ['study', 'python', 'is', 'happy']
+
+
+>>> field=['study','python','is','happy']
+>>> field.sort(key=len) #按字符串由短到长排序
+>>> field
+>>> field.sort(key=len,reverse=True) #按字符串由长到短排序，传递两个参数
+>>> field
+['python', 'study', 'happy', 'is']
+['is', 'study', 'happy', 'python']
+>>> num=[5,8,1,3,6]
+>>> num.sort(reverse=True) #排序后逆序
+>>> num
+[8, 6, 5, 3, 1]
+
+
+
+
+3.3  元    组
+>>> 1,2,3
+(1, 2, 3) 
+>>> 'hello','world'
+('hello', 'world')
+>>> (1, 2, 3)
+(1, 2, 3) 
+>>> ('hello', 'world')
+('hello', 'world')
+
+
+
+
+3.3.1  tuple函数
+>>> tuple(['hello','world'])
+('hello', 'world')
+>>> tuple('hello')
+('h', 'e', 'l', 'l', 'o')
+>>> tuple(('hello','world'))  #参数是元组
+('hello', 'world')
+
+
+
+
+3.3.2  元组的基本操作
+1. 访问元组
+>>> mix = ('hello', 'world', 2015, 2016)
+>>> print ("mix[1] is: ", mix[1])
+mix[1] is:  world
+>>> num = (1, 2, 3, 4, 5, 6, 7 )
+>>> print ("num[1:5] is: ", num[1:5])
+num[1:5] is:  (2, 3, 4, 5)
+
+
+2. 修改元组
+>>> field = ('hello', 'world')
+>>> num = (2015, 2016)
+>>> print ("合并结果为: ", field+num)
+合并结果为:  ('hello', 'world', 2015, 2016)
+
+
+3. 删除元组
+>>> field = ('hello', 'world')
+>>> del field
+>>> print('删除后的结果：',field)
+Traceback (most recent call last):
+  File "<pyshell#84>", line 1, in <module>
+    print('删除后的结果：',field)
+NameError: name 'field' is not defined
+
+
+4. 元组索引、截取
+>>> field = ('hello', 'world', 'welcome')
+>>> field [2]
+'welcome'
+>>> field [-2]
+'world'
+>>> field [1:]
+('world', 'welcome')
+
+
+
+
+3.3.3  元组内置函数
+>>> tup = ('hello', 'world', 'welcome')
+>>> len(tup)
+3
+>>> tup = ('6', '3', '8')
+>>> max(tup)
+'8'
+>>> tup = ('6', '3', '8')
+>>> min(tup)
+'3'
+>>> field= ['hello', 'world', 'welcome']
+>>> tup=tuple(field)
+>>> tup
+('hello', 'world', 'welcome')

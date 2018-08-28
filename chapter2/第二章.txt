@@ -1,0 +1,508 @@
+2.2.1  整型
+
+输入51
+>>> 51
+51
+
+
+输入25+25
+>>> 25+25
+50
+
+
+输入51-50
+>>> 51-50
+1
+
+
+输入25+25+1
+>>> 25+25+1
+51
+
+
+输入51*2
+>>> 51*2
+102
+
+
+输入153/51
+>>> 153/51
+3.0
+
+
+输入155/51
+>>> 155/51
+3.0392156862745097
+
+
+输入153//51
+>>> 153//51
+3
+
+
+输入155//51
+>>> 155//51
+3
+
+
+输入153%51
+>>> 153%51
+0
+输入155%51
+>>> 155%51
+2
+
+
+2.2.2  浮点型
+
+输入3.3*102
+>>> 3.3*102
+336.59999999999997
+
+
+输入3.3*102+15.5
+>>> 3.3*102+15.5
+352.09999999999997
+
+
+输入336.6+15.5
+>>> 336.6+15.5
+352.1
+
+
+输入153/51.0
+>>> 153/51.0
+3.0
+
+
+输入155/51.0
+>>> 155/51.0
+3.0392156862745097
+
+
+输入155//51.0
+>>> 155//51.0
+3.0
+输入155%51.0
+>>> 155%51.0
+2.0
+
+
+2.2.4  数据类型转换
+
+>>> int(352.1)
+352
+
+
+>>> float(352.1)
+352.1
+
+
+>>> float(int(352.1))
+352.0
+
+2.3.1  变量
+
+>>> xiaohong='XiaoHong'
+>>>
+>>> print(xiaohong)
+XiaoHong
+
+
+>>> abc
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    abc
+NameError: name 'abc' is not defined
+
+
+>>> a = 123 
+123
+>>> a='ABC'
+>>> print(a)
+ABC
+
+
+>>> type('Hello,world!')
+<class 'str'>
+
+>>> type(100)
+<class 'int'>
+
+>>> type(3.0)
+<class 'float'>
+
+
+>>> a='test type'
+>>> type(a)
+<class 'str'>
+
+
+>>> b=100
+>>> type(b)
+<class 'int'>
+
+
+>>> c=3.0
+>>> type(c)
+<class 'float'>
+
+
+>>> type('test single quotes')
+<class 'str'>
+>>> type("test double quote")
+<class 'str'>
+>>> type("100")
+<class 'str'>
+>>> type("3.0")
+<class 'str'>
+>>> b=3
+>>> type(b)
+<class 'int'>
+>>> b=100
+>>> type(b)
+<class 'int'>
+>>> c=3.0
+>>> type(c)
+<class 'float'>
+
+
+>>> a=100
+>>> a=a+200
+>>> print(a)
+300
+
+
+>>> a='ABC'
+>>> b=a
+>>> a='XYZ'
+>>> print(b)
+
+
+2.3.2  变量名称
+>>> name='study python is happy'
+>>> Name='I aggree with you'
+>>> print(name)
+study python is happy
+>>> print(Name)
+I aggree with you
+
+
+>>> happy_study='stay hungry stay foolish'
+>>> print(happy_study)
+stay hungry stay foolish
+
+
+>>> 2wrongtest='just for test'
+SyntaxError: invalid syntax
+
+
+>>> xiaoming@me='surprised'
+SyntaxError: can't assign to operator
+
+
+>>> from='from'
+SyntaxError: invalid syntax
+
+
+
+2.4  语    句
+>>> advice='boss,we want have a lunch'
+>>> type(advice)
+<class 'str'>
+
+>>> money=99999999
+>>> type(money)
+<class 'int'>
+>>> spend=1.11111111
+>>> type(spend)
+<class 'float'>
+>>> so happy
+SyntaxError: invalid syntax
+
+
+>>> print('so happy,it is a perfect forenoon')
+so happy,it is a perfect forenoon
+
+
+
+
+2.5  表  达  式
+
+>>> 3*3
+9
+>>> print(3*3)
+9
+
+>>> a=100
+>>>
+>>> 10*10
+100
+
+
+
+2.6.2  算术运算符
+>>> a=10
+>>> b=5
+>>> print(a+b)
+15
+>>> print(a-b)
+5
+>>> print(a*b)
+50
+>>> print(a/b)
+2.0
+>>> print(a**b)
+100000
+>>> print(9//2)
+4
+>>> print(9.0//2.0)
+4.0
+
+>>> 2**32/1024/1024/1024
+4.0
+>>> 2**64/1024/1024/1024
+17179869184.0
+
+
+
+2.6.3  比较运算符
+>>> a=10
+>>> b=20
+>>> a==b
+False
+>>> a!=b
+True
+>>> a>b
+False
+>>> a<b
+True
+>>> a>=b
+False
+>>> a<=b
+True
+>>> a+10>=b
+True
+>>> a+10>b
+False
+>>> a<=b-10
+True
+>>> a<b-10
+False
+>>> a==b-10
+True
+
+
+
+2.6.4  赋值运算符
+>>> a=10
+>>> b=20
+>>> c=0
+>>> c=a+b
+>>> print(c)
+30
+>>> c+=10
+>>> print(c)
+40
+>>> c-=a
+>>> print(c)
+30
+>>> c*=a
+>>> print(c)
+300
+>>> c/=a
+>>> print(c)
+30.0
+>>> c%=a
+>>> print(c)
+0.0
+>>> c=a**5
+>>> print(c)
+100000
+>>> c//=b
+>>> print(b)
+20
+>>> print(c)
+5000
+
+
+
+2.6.5  位运算符
+>>> a=60
+>>> b=13
+>>> c=0
+>>> c=a&b
+>>> print(c)
+12
+>>> c=a|b
+>>> print(c)
+61
+>>> c=a^b
+>>> print(c)
+49
+>>> c=~a
+>>> print(c)
+-61
+>>> c=a<<2
+>>> print(c)
+240
+>>> c=a>>2
+>>> print(c)
+15
+
+
+
+2.6.6  逻辑运算符
+>>> a=10
+>>> b=20
+>>> a and b
+20
+>>> a or b
+10
+>>> not a
+False
+>>> not b
+False
+>>> not -1
+False
+>>> not False
+True
+>>> not True
+False
+
+
+
+
+2.6.7  成员运算符
+>>> a=10
+>>> b=5
+>>> list=[1,2,3,4,5]
+>>> print(a in list)
+False
+>>> print(a not in list)
+True
+>>> print(b in list)
+True
+>>> print(b not in list)
+False
+
+
+
+2.6.8  身份运算符
+>>> a=10
+>>> b=10
+>>> print(a is b)
+True
+>>> print(a is not b)
+False
+>>> b=20
+>>> print(a is b)
+False
+>>> print(a is not b)
+True
+
+
+
+2.6.9  运算符优先级
+>>> a=20
+>>> b=15
+>>> c=10
+>>> d=5
+>>> e=0
+>>> e=(a-b)*c/d
+>>> print('(a-b)*c/d=',e)
+(a-b)*c/d= 10.0
+
+
+>>> e=a-b*c/d
+>>> print('a-b*c/d=',e)
+a-b*c/d= -10.0
+
+
+>>> e=a+b+c-c*d
+>>> print('a+b+c-c*d=',e)
+a+b+c-c*d= -5
+
+
+>>> e=(a+b+c)-(c*d)
+>>> print('(a+b+c)-(c*d)=',e)
+(a+b+c)-(c*d)= -5
+
+
+>>> 2**1+2
+4
+>>> 2**(1+2)
+8
+>>> 2**2*3
+12
+>>> 2*2**3
+16
+>>> 2**(2*3)
+64
+
+
+>>> a+b*c-d
+165
+>>> a*b/c+d
+35.0
+
+
+>>> a+b-c+d
+30
+>>> a+b-c-d
+20
+
+
+
+2.7  字符串操作
+>>> 'hello'/3
+Traceback (most recent call last):
+  File "<pyshell#83>", line 1, in <module>
+    'hello'/3
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+>>> 'world'-1
+Traceback (most recent call last):
+  File "<pyshell#84>", line 1, in <module>
+    'world'-1
+TypeError: unsupported operand type(s) for -: 'str' and 'int'
+>>> 'hello'*world
+Traceback (most recent call last):
+  File "<pyshell#85>", line 1, in <module>
+    'hello'*world
+NameError: name 'world' is not defined
+>>> 'hello'-'world'
+Traceback (most recent call last):
+  File "<pyshell#86>", line 1, in <module>
+    'hello'-'world'
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+
+
+>>> string1='hello'
+>>> string2='world'
+>>> print(string1+string2)
+helloworld
+
+>>> string1='hello'
+>>> string2='world'
+>>> space=' '
+>>> print(string1+space+string2)
+hello world
+>>> string1='hello'
+>>> string2=' world'
+>>> print(string1+string2)
+hello world
+
+>>> print('你好，世界！')
+你好，世界！
+>>> print('馕齉')
+馕齉
+
+
+2.8  注   释
+>>> # 打印1+1的结果
+>>> print(1+1)
+2
+>>> print(1+1) # 打印1+1的结果
+2
+>>> r=10 #将10赋值给r
+>>> r=10 #半径，单位是米

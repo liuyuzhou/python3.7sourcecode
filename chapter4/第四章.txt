@@ -1,0 +1,248 @@
+4.1  字符串的基本操作
+>>> field='Hello'    #创建字符串Hello，并赋给变量field
+
+
+>>> field='just do it'
+>>> field[-3:]
+' it'
+>>> field[-3:]='now'
+Traceback (most recent call last):
+  File "<pyshell#113>", line 1, in <module>
+    field[-3:]='now'
+TypeError: 'str' object does not support item assignment
+
+
+>>> print ('精诚所至\n金石为开')
+精诚所至
+金石为开
+
+
+>>> print (''精诚所至'\n'金石为开'')  #不使用转义字符
+SyntaxError: invalid syntax
+>>> print ('\'精诚所至\'\n\'金石为开\'') #使用\’转义字符
+'精诚所至'
+'金石为开'
+
+
+
+
+4.2.1  字符串格式化符号
+>>> print ('hello,%s' % 'world')
+hello,world
+>>> print ('小智今年%s岁了' % 10)
+小智今年10岁了
+>>> print ('小智今年%s岁了' % 10)  #使用%s作为10的占位符
+小智今年10岁了
+>>> print ('小智今年%d岁了' % 10)  #使用%d作为10的占位符
+小智今年10岁了
+>>> print ('圆周率PI的值为：%f' % 3.14)
+圆周率PI的值为：3.140000 
+>>> print ('圆周率PI的值为：%.2f' % 3.14)
+圆周率PI的值为：3.14
+>>> print ('小智的识别能力比去年提高了：%.2f' % 1.23+'%')
+小智的识别能力比去年提高了：1.23%
+>>> print ('小智的识别能力比去年提高了：%.2f%%' % 1.23)
+小智的识别能力比去年提高了：1.23%
+>>> print ('输出百分号:%s' % '%')
+输出百分号:%
+
+
+
+
+4.2.2  字符串格式化元组
+>>> print ('今年是%s年，中国女排夺得本届奥运会%s，中国共获得%d枚金牌'%('2016','冠军',26))
+今年是2016年，中国女排夺得本届奥运会冠军，中国共获得26枚金牌
+>>> print ('今年是%s年，中国女排夺得本届奥运会%s，中国共获得%d枚金牌' % '2016','冠军',26)
+Traceback (most recent call last):
+  File "<pyshell#149>", line 1, in <module>
+    print ('今年是%s年，中国女排夺得本届奥运会%s，中国共获得%d枚金牌' % '2016','冠军',26)
+TypeError: not enough arguments for format string
+
+
+1. 简单转换
+>>> print ('圆周率PI的值为：%.2f' % 3.14)
+圆周率PI的值为：3.14
+>>> print ('石油价格为每桶：$%d' % 96)
+石油价格为每桶：$96
+
+
+2. 字段宽度和精度
+>>> print ('圆周率PI的值为：%10f' % 3.141593) #字段宽度为10
+圆周率PI的值为：  3.141593  #字符串宽度为10，被字符串占据8个空格，剩余两个空格
+>>> print ('保留2位小数，圆周率PI的值为：%10.2f' % 3.141593) #字段宽度为10
+保留2位小数，圆周率PI的值为：      3.14 #字符串宽度为10，字符串占据4个，剩6个
+>>> print ('保留2位小数，圆周率PI的值为：%.2f' % 3.141593)
+保留2位小数，圆周率PI的值为：3.14  #输出，没有字段宽度参数
+>>> print ('字符串精度获取：%.5s' % ('hello world'))#打印字符串前5个字符
+字符串精度获取：hello
+>>> print ('从元组中获取字符串精度：%*.*s' % (10,5,'hello world'))
+从元组中获取字符串精度：     hello  #输出字符串宽度为10、精度为5
+>>> print ('从元组中获取字符串精度：%.*s' % (5,'hello world'))
+从元组中获取字符串精度：hello #输出精度为5
+
+
+3. 符号、对齐和0填充
+>>> print ('圆周率PI的值为：%010.2f' % 3.141593)
+圆周率PI的值为：0000003.14
+>>> print ('圆周率PI的值为：%10.2f' % 3.14)
+圆周率PI的值为：      3.14
+>>> print ('圆周率PI的值为：%-10.2f' % 3.14)
+圆周率PI的值为：3.14      #此处右侧为多出的空格
+>>> print(('% 5d' %10)+'\n'+('% 5d' %-10))
+   10
+  -10
+>>> print(('宽度前加加号：%+5d'%10)+'\n'+('宽度前加加号：%+5d'%-10))
+宽度前加加号：  +10
+宽度前加加号：  -10
+
+
+
+
+4.3.1  find()方法
+>>> field='do it now'
+>>> field.find('do')
+0
+>>> field.find('now')
+6
+>>> field.find('python')
+-1
+>>> field.find('it',2)  #提供起点
+3
+>>> field.find('it',5)  #提供起点
+-1
+>>> field.find('it',0,3)  #提供起点和终点
+-1
+>>> field.find('it',0,5)
+3
+>>> field.find('it',5,10)
+-1
+
+
+
+
+4.3.2  join()方法
+>>> num=[1,2,3,4,5]
+>>> mark='+'
+>>> mark.join(num)
+Traceback (most recent call last):
+  File "<pyshell#219>", line 1, in <module>
+    mark.join(num)
+TypeError: sequence item 0: expected str instance, int found
+>>> num.join(mark)
+Traceback (most recent call last):
+  File "<pyshell#216>", line 1, in <module>
+    num.join(mark)
+AttributeError: 'list' object has no attribute 'join'
+>>> field=['1','2','3','4','5']
+>>> print('连接字符串列表：',mark.join(field))
+连接字符串列表： 1+2+3+4+5
+>>> field.join(mark)
+Traceback (most recent call last):
+  File "<pyshell#228>", line 1, in <module>
+    field.join(mark)
+AttributeError: 'list' object has no attribute 'join'
+>>> dirs='','home','data','hdfs'
+>>> print('路径：','/'.join(dirs))
+路径： /home/data/hdfs
+
+
+
+
+4.3.3  lower()方法
+>>> field='DO IT NOW'
+>>> print('调用lower得到字符串：',field.lower())
+调用lower得到字符串： do it now
+>>> greeting='Hello,World'
+>>> print('调用lower得到字符串：',greeting.lower())
+调用lower得到字符串： hello,world
+>>> field='DO IT NOW'
+>>> field.find('It') #都不转换为小写，找不到匹配字符串
+-1
+>>> field.lower().find('It') #被查找字符串不转换为小写，找不到匹配字符串
+-1
+>>> field.lower().find('It'.lower())  #使用lower方法转换成小写后查找
+3
+
+
+
+
+4.3.4  upper()方法
+>>> field='do it now'
+>>> print('调用upper得到字符串：',field.upper())
+调用upper得到字符串： DO IT NOW
+>>> greeting='Hello,World'
+>>> print('调用upper得到字符串：',greeting.upper())
+调用upper得到字符串： HELLO,WORLD
+>>> field='do it now'
+>>> field.find('It') #都不转换为大写，找不到匹配字符串
+-1
+>>> field.upper().find('It') #被查找字符串不转换为大写，找不到匹配字符串
+-1
+>>> field.upper().find('It'.upper())  #使用upper方法转换为大写后查找
+3
+
+
+
+
+4.3.5  swapcase()方法
+>>> field='Just do  it,NOW'
+>>> print('原字符串：',field)
+原字符串： Just do  it,NOW
+>>> print('调用swapcase方法后得到的字符串：',field.swapcase())
+调用swapcase方法后得到的字符串： jUST DO  IT,now
+
+
+
+
+4.3.6  replace()方法
+>>> field='do it now,do right now'
+>>> print('原字符串：',field)
+原字符串： do it now,do right now
+>>> print('新字符串：',field.replace('do','Just do'))
+新字符串： Just do it now,Just do right now
+>>> print('新字符串：',field.replace('o','Just',1))
+新字符串： dJust it now,do right now
+>>> print('新字符串：',field.replace('o','Just',2))
+新字符串： dJust it nJustw,do right now
+>>> print('新字符串：',field.replace('o','Just',3))
+新字符串： dJust it nJustw,dJust right now
+
+
+
+
+4.3.7  split()方法
+>>> field='do it now'
+>>> print('不提供任何分割符分隔后的字符串：',field.split())
+不提供任何分割符分隔后的字符串： ['do', 'it', 'now']
+>>> print('根据i分隔后的字符串：',field.split('i'))
+根据i分隔后的字符串： ['do ', 't now']
+>>> print('根据o分隔后的字符串：',field.split('o'))
+根据o分隔后的字符串： ['d', ' it n', 'w']
+>>> print('根据o分隔1次后的字符串：',field.split('o',1))
+根据o分隔1次后的字符串： ['d', ' it now']
+
+
+
+
+4.3.8  strip()方法
+>>> field='----do it now----'
+>>> print('原字符串：',field)
+原字符串： ----do it now----
+>>> print('新字符串：',field.strip('-'))
+新字符串： do it now
+>>> st='----do -- it -- now----'
+>>> print('原字符串：',st)
+原字符串： ----do -- it -- now----
+>>> print('新字符串：',st.strip('-'))
+新字符串： do -- it -- now
+
+
+
+
+4.3.9  translate()方法
+>>> intab='adfas'
+>>> outtab='12345'
+>>> trantab=str.maketrans(intab,outtab)
+>>> st='just do it'
+>>> print('st调用translate方法后：',st.translate(trantab))
+st调用translate方法后： ju5t 2o it

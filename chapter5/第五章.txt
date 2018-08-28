@@ -1,0 +1,246 @@
+5.1  字典的使用
+>>> students=['小萌','小智','小强','小张','小李']
+>>> numbers=['1001','1002','1003','1004','1005']
+>>> print('小智的学号是：',numbers[students.index('小智')])
+小智的学号是： 1002
+>>> print('小智的学号是：',numbers['小智'])
+小智的学号是： 1002
+
+
+
+
+5.2  创建和使用字典
+>>> dict = {'小萌': '1001', '小智': '1002', '小强': '1003'}
+>>> dict1 = { 'abc': 456 }
+>>> dict2 = { 'abc': 123, 98.6: 37 }
+
+
+
+
+5.2.1  dict函数
+>>> student=[('name','小萌'),('number','1001')]
+>>> detail=dict(student)
+>>> print('学生详细信息：',detail)
+学生详细信息： {'name': '小萌', 'number': '1001'}
+>>> print('学生姓名：',detail['name'])
+学生姓名： 小萌
+>>> print('学生学号：',detail['number'])
+学生学号： 1001
+>>> detail=dict(name='小智',number='1002')
+>>> print('学生详细信息：',detail)
+学生详细信息： {'name': '小智', 'number': '1002'}
+
+
+
+
+5.2.2  字典的基本操作
+1. 修改字典
+>>> student={'小萌':'1001','小智':'1002','小强':'1003'}
+>>> student['小强']='1005'  #更新小强的学号
+>>> print('小强的学号是：%(小强)s' % student)
+小强的学号是：1005
+>>> student['小张']='1006' #添加一个学生
+>>> print('小张的学号是：%(小张)s' % student)
+小张的学号是：1006
+
+
+2. 删除字典元素
+>>> student={'小强': '1005', '小萌': '1001', '小智': '1002', '小张': '1006'}
+>>> print('删除前:',student)
+删除前: {'小强': '1005', '小萌': '1001', '小智': '1002', '小张': '1006'}
+>>> del student['小张'] #删除键“小张”
+>>> print('删除后:',student)
+删除后: {'小强': '1005', '小萌': '1001', '小智': '1002'}
+>>> student={'小强': '1005', '小萌': '1001', '小智': '1002', '小张': '1006'}
+>>> print('删除前:',student)
+删除前: {'小强': '1005', '小萌': '1001', '小智': '1002', '小张': '1006'}
+>>> del student  #删除字典
+>>> print('删除后:',student)
+Traceback (most recent call last):
+  File "<pyshell#70>", line 1, in <module>
+    print('删除后:',student)
+NameError: name 'student' is not defined
+
+
+3. 字典键的特性
+>>> student={'小萌': '1001', '小智': '1002', '小萌': '1005'}
+>>> print('学生信息：',student)
+学生信息： {'小萌': '1005', '小智': '1002'} 
+>>> field={['name']:'小萌','number':'1001'}
+Traceback (most recent call last):
+  File "<pyshell#80>", line 1, in <module>
+    field={['name']:'小萌','number':'1001'}
+TypeError: unhashable type: 'list'
+
+
+4. len函数
+>>> student={'小萌': '1001', '小智': '1002', '小强': '1005','小张': '1006'}
+>>> print('字典元素个数为：%d个' % len(student))
+字典元素个数为：4个
+
+
+5. type函数
+>>> student={'小萌': '1001', '小智': '1002', '小强': '1005','小张': '1006'}
+>>> print('字典的类型为：',type(student))
+字典的类型为： <class 'dict'>
+
+
+
+
+5.2.3  字典的格式化字符串
+>>> student={'小萌':'1001','小智':'1002','小强':'1003'}
+>>> print('小强的学号是：%(小强)s' % student)
+小强的学号是：1003
+
+
+
+
+5.3.1  clear()方法
+>>> student={'小萌': '1001', '小智': '1002', '小强': '1005','小张': '1006'}
+>>> print('字典元素个数为：%d个' % len(student))
+字典元素个数为：4个
+>>> student.clear()
+>>> print('字典删除后元素个数为：%d个' % len(student))
+字典删除后元素个数为：0个
+
+
+示例1：
+>>> x={}
+>>> y=x
+>>> x['key']='value'
+>>> y
+{'key': 'value'}
+>>> x={}
+>>> y
+{'key': 'value'}
+示例2：
+>>> x={}
+>>> y=x
+>>> x['key']='value'
+>>> y
+{'key': 'value'}
+>>> x.clear()
+>>> y
+{}
+
+
+
+
+5.3.2  copy()方法
+>>> student={'小萌': '1001', '小智': '1002', '小强': '1005','小张': '1006'}
+>>> st=student.copy()
+>>> print('复制后得到的st为：',st)
+复制后得到的st为： {'小强': '1005', '小萌': '1001', '小智': '1002', '小张': '1006'}
+>>> student={'小智': '1002', 'info':['小张','1006','man']}
+>>> st=student.copy()
+>>> st['小智']='1005'
+>>> print('更改copy后的st为：',st)
+更改copy后的st为： {'info': ['小张', '1006', 'man'], '小智': '1005'}
+>>> print('原字符串为：：',student)
+原字符串为：： {'info': ['小张', '1006', 'man'], '小智': '1002'}
+>>> st['info'].remove('man')
+>>> print('删除后st为：',st)
+删除后st为： {'info': ['小张', '1006'], '小智': '1005'}
+>>> print('删除后student为：',student)
+删除后student为： {'info': ['小张', '1006'], '小智': '1002'}
+
+
+
+
+5.3.3  fromkeys()方法
+>>> seq = ('name', 'age', 'sex')
+>>> info = dict.fromkeys(seq)
+>>> print ("新的字典为 : %s" %  info)
+新的字典为 : {'name': None, 'sex': None, 'age': None}
+>>> info = dict.fromkeys(seq, 10)
+>>> print ("新的字典为 : %s" %  info)
+新的字典为 : {'name': 10, 'sex': 10, 'age': 10}
+
+
+
+
+5.3.4  get()方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print ('小萌的学号为: %s' %  student.get('小萌'))
+小萌的学号为: 1001
+>>> st={}
+>>> print(st['name'])
+Traceback (most recent call last):
+  File "<pyshell#166>", line 1, in <module>
+    print(st['name'])
+KeyError: 'name'
+>>> print(st.get('name'))
+None
+>>> print('name的值为：%s' % st.get('name'))
+name的值为：None
+>>> st={}
+>>> print('name的值为：%s' % st.get('name','未指定'))
+name的值为：未指定
+
+
+
+
+5.3.5  key in dict方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print('小萌在student字典中：%s'%('小萌' in student))
+小萌在student字典中：True
+>>> print('小强在student字典中：%s'%('小强' in student))
+小强在student字典中：False
+
+
+
+
+5.3.6  items()方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print('调用items方法的结果：%s'% student.items())
+调用items方法的结果：dict_items([('小萌', '1001'), ('小智', '1002')])
+
+
+
+
+5.3.7  keys()方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print('字典student所有键为：%s'% student.keys())
+字典student所有键为：dict_keys(['小萌', '小智'])
+
+
+
+
+5.3.8  setdefault()方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print('小强的键值为：%s'% student.setdefault('小强'))
+小强的键值为：None
+>>> print('小智的键值为：%s'% student.setdefault('小智'))
+小智的键值为：1002
+>>> print('student字典新值为：%s'% student)
+student字典新值为：{'小强': None, '小萌': '1001', '小智': '1002'}
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> print('小强的键值为：%s'% student.setdefault('小强'))
+小强的键值为：None
+>>> print('小zhang的键值为：%s'% student.setdefault('小zhang','1006'))
+小zhang的键值为：1006
+
+
+
+
+5.3.9  update()方法
+>>> student={'小萌': '1001', '小智': '1002'}
+>>> student2={'小李':'1003'}
+>>> print('原student字典为：%s'% student)
+原student字典为：{'小萌': '1001', '小智': '1002'}
+>>> student.update(student2)
+>>> print('新student字典为：%s'% student)
+新student字典为：{'小李': '1003', '小萌': '1001', '小智': '1002'}
+>>> student3={'小李':'1005'}
+>>> student.update(student3)  #对相同项覆盖
+>>> print('新student字典为：%s'% student)
+新student字典为：{'小李': '1005', '小萌': '1001', '小智': '1002'}
+
+
+
+
+
+5.3.10  values()方法
+>>> student={'小萌': '1001', '小智': '1002','小李':'1001'}
+>>> print('student字典所有值为：%s'% list(student.values()))
+student字典所有值为：['1001', '1001', '1002']
