@@ -20,7 +20,7 @@ from email import utils
 # attachments：附件
 # delete：是否删除
 def send(to, cc, subject, content, attachments, delete):
-    user = "ab@banggood.com"
+    user = "ab@test.com"
     password = "ab"
 
     # 准备邮件服务
