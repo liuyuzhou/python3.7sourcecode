@@ -5,7 +5,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 
-sender = 'ai@banggood.com'
+sender = 'ai@test.com'
 pwd = 'ai' #开通邮箱服务后，设置的客户端授权密码
 receivers = ['lyz@163.com']  # 接收邮件，可设置为你的邮箱
 
