@@ -10,7 +10,7 @@ html5lib==1.0.1
 idna==2.6
 itsdangerous==0.24
 jieba==0.39
-Jinja2==2.10
+Jinja2==2.11.3
 jupyter-echarts-pypkg==0.1.0
 lml==0.0.2
 MarkupSafe==1.0
