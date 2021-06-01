@@ -21,6 +21,6 @@ PyMySQL==0.8.0
 requests==2.20.0
 six==1.11.0
 SQLAlchemy==1.2.6
-urllib3==1.22
+urllib3==1.26.5
 webencodings==0.5.1
 Werkzeug==0.14.1
